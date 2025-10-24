@@ -21,10 +21,10 @@ print("Trecho desejado:\n\n\n\n", trecho if trecho else "Não encontrado")
 codigo_match = re.search(r"([A-Z]{2,}\d{3,})\s*Course\b", trecho, re.IGNORECASE)
 codigo = codigo_match.group(1) if codigo_match else None
 
-curso_match = re.search(r"Materia:\s*(?:\n\s*)?(.+)", trecho, re.IGNORECASE)
-curso = curso_match.group(1).strip() if curso_match else None
+materia_match = re.search(r"Materia:\s*(?:\n\s*)?(.+)", trecho, re.IGNORECASE)
+materia = materia_match.group(1).strip() if materia_match else None
 
 print("Código da Disciplina:", codigo)
-print("Curso:", curso)
+print("Materia:", materia)
 
 
