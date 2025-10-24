@@ -1,7 +1,7 @@
 import pdfplumber
 import re
 
-pdf_path = "ECM516.pdf"
+pdf_path = "TTI101.pdf"
 
 with pdfplumber.open(pdf_path) as pdf:
     texto = "\n".join(page.extract_text() for page in pdf.pages if page.extract_text())
@@ -27,4 +27,12 @@ materia = materia_match.group(1).strip() if materia_match else None
 print("Código da Disciplina:", codigo)
 print("Materia:", materia)
 
+codigos = { 
+    "TTI101": ["CIC", "ICD", "SIN"],
+    "SIN405": ["SIN", "RIT", "ADM"],
+    "EAL406": ["EAL"],
+    "ECM516": ["ECM"],
+}
 
+for codigo in codigos:
+    print("Curso: ", codigos[codigo])
